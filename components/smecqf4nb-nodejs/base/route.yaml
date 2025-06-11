@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: smecqf4nb-nodejs
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: smecqf4nb-nodejs 
+  name: smecqf4nb-nodejs
+spec:
+  port:
+    targetPort: 3001 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: smecqf4nb-nodejs
+    weight: 100 
